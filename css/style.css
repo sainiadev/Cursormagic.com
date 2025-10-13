@@ -1,0 +1,188 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Container */
+.maintenance-container {
+    max-width: 400px;
+    padding: 1rem;
+}
+
+/* Logo text styles */
+.logo-text {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto 0.5rem;
+    display: block;
+}
+
+/* Tagline */
+.tagline {
+    font-size: 1.0rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* Logo container */
+.logo-container {
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+    background-color: #222;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-container {
+    transform: scale(1.05);
+}
+
+/* Logo image */
+.logo {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    z-index: 10;
+    position: relative;
+}
+
+/* Wave animation */
+.wave {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    animation: pulse 2s infinite;
+    opacity: 0;
+    transform-origin: center;
+}
+
+.wave-1 {
+    animation-delay: 0s;
+}
+
+.wave-2 {
+    animation-delay: 1s;
+}
+
+.wave-3 {
+    animation-delay: 2s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* Link styles */
+a {
+    color: #fff;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    .logo-text {
+        max-width: 90%;
+    }
+    .tagline {
+        font-size: 1.2rem;
+    }
+    .logo-container {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+/* Choice Page Styles */
+.choice-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:  -100vh;
+    padding: 0 10vw;
+    background-color: #000;
+    gap: 10vw;
+}
+
+.choice {
+    text-align: center;
+    color: #f7c6c6;
+    text-decoration: none;
+    transition: transform 0.4s ease, color 0.3s ease;
+    will-change: transform;
+}
+
+.choice:hover {
+    transform: scale(1.8) skew(-4deg);
+    color: #00f0ff;
+}
+
+.choice span {
+    display: block;
+    line-height: 0.5; /* reduce vertical spacing */
+    margin-bottom: 0.2rem; /* reduce gap even more if needed */
+}
+
+
+.large-text {
+    font-size: 3rem;
+    font-weight: 700;
+    display: block;
+}
+
+.small-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .large-text {
+        font-size: 2rem;
+    }
+
+    .small-text {
+        font-size: 1rem;
+    }
+
+    .choice-container {
+        flex-direction: column;
+        gap: 4rem;
+    }
+}
