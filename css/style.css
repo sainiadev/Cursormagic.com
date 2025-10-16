@@ -48,33 +48,29 @@ body {
   z-index: 2;
 }
 
-/* Background overlay for hover effect */
+/* Background overlay */
 .background-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
     z-index: -1;
     pointer-events: none;
 }
 
-/* Ensure choice container is above overlay */
 .choice-container {
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
-/* Smooth transitions for choices */
 .choice {
     transition: transform 0.4s ease, color 0.3s ease, opacity 0.3s ease;
 }
-.choice:hover {
-    transition: transform 0.4s ease, color 0.3s ease;
-}
+
 
