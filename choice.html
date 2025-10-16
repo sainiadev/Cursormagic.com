@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Cursor Magic | Your Choice</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choice - CursorMagic</title>
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div class="choice-container">
-        <a href="index.html" class="choice stay">
-            <span class="large-text">our</span><br>
-            <span class="small-text">work</span>
-        </a>
 
-        <a href="https://youtu.be/nlHF5TQNc5E?si=Vj6Qkeqr58fR4ekS" target="_blank" class="choice go">
-            <span class="small-text">youtube</span><br>
-            <span class="large-text">portfolio</span>
-        </a>
+  <!-- Background overlay for hover effect -->
+  <div class="background-overlay"></div>
+
+  <div class="choices">
+    <div class="choice left" id="our-work" onclick="window.location.href='ourwork.html'">
+      Our Work
     </div>
+    <div class="choice right" id="youtube-portfolio" onclick="window.location.href='https://youtube.com/portfolio'">
+      YouTube Portfolio
+    </div>
+  </div>
+
+  <script>
+    // Optional JS fallback for smoother transitions (if CSS-only isn’t perfectly cross-browser)
+    const choices = document.querySelectorAll('.choice');
+    const overlay = document.querySelector('.background-overlay');
+
+    choices.forEach(choice => {
+      choice.addEventListener('mouseenter', () => {
+        if (choice.id === 'our-work') {
+          overlay.style.backgroundImage = "url('images/ourWorkBG.jpg')";
+        } else if (choice.id === 'youtube-portfolio') {
+          overlay.style.backgroundImage = "url('images/youtubeBG.jpg')";
+        }
+        overlay.style.opacity = '0.15';
+        choices.forEach(c => c.style.opacity = '1');
+      });
+    });
+  </script>
+
 </body>
 </html>
