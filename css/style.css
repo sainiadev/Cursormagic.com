@@ -155,7 +155,7 @@ a:hover {
 
 .choice span {
     display: block;
-    line-height: 0.5; /* reduce vertical spacing */
+    line-height: 2.5; /* reduce vertical spacing */
     margin-bottom: 0.2rem; /* reduce gap even more if needed */
 }
 
