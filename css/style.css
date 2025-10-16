@@ -23,8 +23,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80vw;
-  gap: 10vw;
+  width: 250vw;
+  gap: 100vw;
   position: relative;
   z-index: 1;
 }
