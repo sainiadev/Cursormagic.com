@@ -4,24 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Choice - CursorMagic</title>
+  <!-- Make sure the CSS path matches your actual CSS folder name on the server -->
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-
-  <!-- Background overlay for hover effect -->
+  <!-- Overlay for background images on hover -->
   <div class="background-overlay"></div>
 
   <div class="choices">
-    <div class="choice left" id="our-work" onclick="window.location.href='ourwork.html'">
-      Our Work
-    </div>
-    <div class="choice right" id="youtube-portfolio" onclick="window.location.href='https://youtube.com/portfolio'">
-      YouTube Portfolio
-    </div>
+    <div class="choice" id="our-work" onclick="window.location.href='ourwork.html'">Our Work</div>
+    <div class="choice" id="youtube-portfolio" onclick="window.location.href='https://youtube.com/portfolio'">YouTube Portfolio</div>
   </div>
-
   <script>
-    // Optional JS fallback for smoother transitions (if CSS-only isn’t perfectly cross-browser)
+    // JS for dynamic background and fading the other choice
     const choices = document.querySelectorAll('.choice');
     const overlay = document.querySelector('.background-overlay');
 
@@ -29,14 +24,24 @@
       choice.addEventListener('mouseenter', () => {
         if (choice.id === 'our-work') {
           overlay.style.backgroundImage = "url('images/ourWorkBG.jpg')";
-        } else if (choice.id === 'youtube-portfolio') {
+        } else {
           overlay.style.backgroundImage = "url('images/youtubeBG.jpg')";
         }
-        overlay.style.opacity = '0.15';
-        choices.forEach(c => c.style.opacity = '1');
+        overlay.style.opacity = '0.13';
+        choices.forEach(other => {
+          if (other !== choice) other.style.opacity = '0.05';
+        });
+        choice.style.zIndex = 2;
+      });
+
+      choice.addEventListener('mouseleave', () => {
+        overlay.style.opacity = 0;
+        choices.forEach(other => {
+          other.style.opacity = '1';
+        });
+        choices.forEach(other => other.style.zIndex = 1);
       });
     });
   </script>
-
 </body>
 </html>
