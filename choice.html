@@ -24,7 +24,7 @@
     </div>
 
     <script>
-        // JS for dynamic background and fading the other choice
+        // Background hover effect
         const choices = document.querySelectorAll('.choice');
         const overlay = document.querySelector('.background-overlay');
 
@@ -35,14 +35,16 @@
                 } else if (choice.id === 'youtube-portfolio') {
                     overlay.style.backgroundImage = "url('images/youtubeBG.jpg')";
                 }
-                overlay.style.opacity = '0.13';
+                overlay.style.opacity = '0.12';
+                
+                // Fade other choice
                 choices.forEach(other => {
                     if (other !== choice) other.style.opacity = '0.05';
                 });
             });
 
             choice.addEventListener('mouseleave', () => {
-                overlay.style.opacity = 0;
+                overlay.style.opacity = '0';
                 choices.forEach(other => {
                     other.style.opacity = '1';
                 });
