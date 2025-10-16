@@ -5,36 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Cursor Magic | Your Choice</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
 </head>
 <body>
     <!-- Background overlay -->
     <div class="background-overlay" id="bg-overlay"></div>
 
     <div class="choice-container">
-        <a href="index.html" class="choice stay" data-bg="ourWorkBG">
-            <span class="large-text">our</span><br>
-            <span class="small-text">work</span>
-        </a>
+        <!-- Our Work Section -->
+        <section class="choice-section" data-bg="ourWorkBG">
+            <a href="index.html" class="choice stay">
+                <span class="mega-text">OUR</span>
+                <span class="mega-text">WORK</span>
+            </a>
+        </section>
 
-        <a href="https://youtu.be/nlHF5TQNc5E?si=Vj6Qkeqr58fR4ekS" target="_blank" class="choice go" data-bg="youtubeBG">
-            <span class="small-text">youtube</span><br>
-            <span class="large-text">portfolio</span>
-        </a>
+        <!-- YouTube Portfolio Section -->
+        <section class="choice-section" data-bg="youtubeBG">
+            <a href="https://youtu.be/nlHF5TQNc5E?si=Vj6Qkeqr58fR4ekS" target="_blank" class="choice go">
+                <span class="mega-text">YOUTUBE</span>
+                <span class="mega-text">PORTFOLIO</span>
+            </a>
+        </section>
     </div>
 
     <script>
-        const choices = document.querySelectorAll('.choice');
+        const sections = document.querySelectorAll('.choice-section');
         const overlay = document.getElementById('bg-overlay');
 
-        choices.forEach(choice => {
-            choice.addEventListener('mouseenter', function() {
+        sections.forEach(section => {
+            section.addEventListener('mouseenter', function() {
                 const bgName = this.getAttribute('data-bg');
                 
                 // Try multiple formats
                 let imageUrl = `images/${bgName}.jpg`;
                 
-                // Create image to test if it loads
                 const img = new Image();
                 img.onload = function() {
                     overlay.style.backgroundImage = `url('${imageUrl}')`;
@@ -49,7 +54,7 @@
                         overlay.style.opacity = '0.15';
                     };
                     img2.onerror = function() {
-                        // Fallback - show colored overlay
+                        // Fallback gradients
                         if (bgName === 'ourWorkBG') {
                             overlay.style.background = 'linear-gradient(45deg, rgba(0,100,255,0.15), rgba(0,200,255,0.15))';
                         } else {
@@ -60,21 +65,30 @@
                     img2.src = imageUrl;
                 };
                 img.src = imageUrl;
-
-                // Fade other choice
-                choices.forEach(other => {
-                    if (other !== this) other.style.opacity = '0.05';
-                });
             });
 
-            choice.addEventListener('mouseleave', function() {
+            section.addEventListener('mouseleave', function() {
                 overlay.style.opacity = '0';
                 overlay.style.backgroundImage = '';
                 overlay.style.background = '';
-                choices.forEach(other => {
-                    other.style.opacity = '1';
-                });
             });
+        });
+
+        // Smooth scrolling between sections
+        document.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            
+            const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('.choice-section');
+            const allSections = Array.from(sections);
+            const currentIndex = allSections.indexOf(currentSection);
+            
+            if (e.deltaY > 0 && currentIndex < allSections.length - 1) {
+                // Scroll down
+                allSections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.deltaY < 0 && currentIndex > 0) {
+                // Scroll up
+                allSections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
         });
     </script>
 </body>
