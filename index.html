@@ -1,36 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cursor Magic | Creative Motion Studio</title>
 
-    <!-- NOTE: style.css is in the same folder as this file -->
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="maintenance-container">
-        <!-- Logo text -->
-        <img src="images/logos/CM_logo_text.png" alt="Cursor Magic" class="logo-text">
+    <!-- Background decorations -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
 
-        <p class="tagline">Where motion meets imagination</p>
-
-        <!-- Clickable circular logo with waves -->
-        <a href="choice.html" class="logo-link">
-            <div class="logo-container">
-                <img src="images/logos/CM_Logo.png" alt="Cursor Magic Logo" class="logo">
-                <div class="wave wave-1"></div>
-                <div class="wave wave-2"></div>
-                <div class="wave wave-3"></div>
+    <!-- HERO / FIRST SCREEN -->
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <div class="hero-logo-wrapper">
+                <span class="hero-welcome">welcome</span>
+                <h1 class="hero-logo">
+                    Cursor<span>Magic</span>
+                </h1>
             </div>
-        </a>
+            <p class="hero-tagline">Where motion meets imagination</p>
+            <div class="scroll-hint">
+                <span>Scroll to explore</span>
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </header>
 
-        <p>Our new website is coming soon</p>
-        <p>For inquiries, please contact
-            <a href="mailto:cursormagic@gmail.com">cursormagic@gmail.com</a>
-        </p>
-    </div>
+    <!-- OUR WORK INTRO -->
+    <section class="section section-work-intro reveal">
+        <div class="section-inner">
+            <h2>Our work</h2>
+            <p>
+                A playground of motion, pixels, and stories. These tiles are placeholders for
+                our upcoming projects.
+            </p>
+        </div>
+    </section>
+
+    <!-- TILES SECTION -->
+    <section class="section section-tiles">
+        <div class="section-inner">
+            <div class="tiles-grid">
+                <article class="tile reveal">
+                    <div class="tile-label">Tile 1</div>
+                    <div class="tile-body">Coming soon</div>
+                </article>
+
+                <article class="tile reveal">
+                    <div class="tile-label">Tile 2</div>
+                    <div class="tile-body">Coming soon</div>
+                </article>
+
+                <article class="tile reveal">
+                    <div class="tile-label">Tile 3</div>
+                    <div class="tile-body">Coming soon</div>
+                </article>
+
+                <article class="tile reveal">
+                    <div class="tile-label">Tile 4</div>
+                    <div class="tile-body">Coming soon</div>
+                </article>
+
+                <article class="tile reveal">
+                    <div class="tile-label">Tile 5</div>
+                    <div class="tile-body">Coming soon</div>
+                </article>
+
+                <article class="tile reveal">
+                    <div class="tile-label">Tile 6</div>
+                    <div class="tile-body">Coming soon</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer section reveal">
+        <div class="section-inner">
+            <p>For collaborations & inquiries</p>
+            <a href="mailto:cursormagic@gmail.com" class="footer-mail">cursormagic@gmail.com</a>
+            <p class="footer-copy">© <span id="year"></span> Cursor Magic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
