@@ -1,25 +1,17 @@
-// Reveal elements on scroll
-const revealItems = document.querySelectorAll(".reveal");
+const revealEls = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
+const io = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+        io.unobserve(entry.target);
       }
     });
   },
-  {
-    threshold: 0.12,
-  }
+  { threshold: 0.15 }
 );
 
-revealItems.forEach((el) => observer.observe(el));
+revealEls.forEach((el) => io.observe(el));
 
-// Footer year
-const yearSpan = document.getElementById("year");
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
-// Smooth scroll for anchor links
+document.getElementById("year").textContent = new Date().getFullYear();
