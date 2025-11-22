@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Cursor Magic | Your Choice</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- NOTE: style.css is in the same folder -->
+    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -30,18 +31,14 @@
         choices.forEach(choice => {
             choice.addEventListener('mouseenter', function() {
                 const bgName = this.getAttribute('data-bg');
-                
-                // Try multiple formats
                 let imageUrl = `images/${bgName}.jpg`;
-                
-                // Create image to test if it loads
+
                 const img = new Image();
                 img.onload = function() {
                     overlay.style.backgroundImage = `url('${imageUrl}')`;
                     overlay.style.opacity = '0.15';
                 };
                 img.onerror = function() {
-                    // Try PNG if JPG fails
                     imageUrl = `images/${bgName}.png`;
                     const img2 = new Image();
                     img2.onload = function() {
@@ -49,7 +46,6 @@
                         overlay.style.opacity = '0.15';
                     };
                     img2.onerror = function() {
-                        // Fallback - show colored overlay
                         if (bgName === 'ourWorkBG') {
                             overlay.style.background = 'linear-gradient(45deg, rgba(0,100,255,0.15), rgba(0,200,255,0.15))';
                         } else {
@@ -61,7 +57,6 @@
                 };
                 img.src = imageUrl;
 
-                // Fade other choice
                 choices.forEach(other => {
                     if (other !== this) other.style.opacity = '0.05';
                 });

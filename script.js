@@ -1,3 +1,4 @@
+// reveal-on-scroll
 const revealEls = document.querySelectorAll(".reveal");
 
 const io = new IntersectionObserver(
@@ -14,4 +15,8 @@ const io = new IntersectionObserver(
 
 revealEls.forEach((el) => io.observe(el));
 
-document.getElementById("year").textContent = new Date().getFullYear();
+// footer year
+const yearSpan = document.getElementById("year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
