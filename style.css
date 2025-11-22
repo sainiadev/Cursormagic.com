@@ -82,13 +82,15 @@ footer {
 
 .hero-welcome {
   position: absolute;
-  top: -12px;
-  right: 6px;
-  font-size: 0.75rem;
+  top: -14px;
+  left: 62%;              /* pulls it closer above the logo instead of far right */
+  transform: translateX(-50%);
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: #e5e7eb;
   opacity: 0.9;
+  white-space: nowrap;
 }
 
 .hero-logo-img {
@@ -142,9 +144,9 @@ footer {
 
 /* tagline */
 .hero-tagline {
-  margin-top: 32px;  /* gap from logo: ~30px, safe & visible */
-  font-weight: 600;  /* bold */
-  font-size: clamp(1rem, 2.2vw, 1.25rem);  /* dynamic size */
+  margin-top: 22px;   /* closer to logo (around 20–25px gap) */
+  font-weight: 600;   /* bold */
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #e5e7eb;
