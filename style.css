@@ -93,25 +93,28 @@ footer {
 
 .hero-logo-img {
   display: block;
-  max-width: min(80vw, 420px);
+  width: min(70vw, 420px);   /* dynamically scales with viewport */
+  max-width: 100%;
   height: auto;
+  margin: 0 auto;            /* centers horizontally */
   object-fit: contain;
-  filter: drop-shadow(0 6px 20px rgba(15, 23, 42, 0.9));
   animation: logoBreathe 4s ease-in-out infinite;
 }
 
-/* subtle breathing scale on the logo itself */
+/* subtle breathing animation on the logo itself */
 @keyframes logoBreathe {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.03);
+    transform: scale(1.02);  /* slight, not too strong */
   }
   100% {
     transform: scale(1);
   }
 }
+
+
 
 
 /* .hero-logo {
@@ -127,7 +130,7 @@ footer {
 }
 
 /* glowing ring */
-.hero-logo-wrap::before {
+/* .hero-logo-wrap::before {
   content: "";
   position: absolute;
   inset: -24px;
@@ -135,17 +138,18 @@ footer {
   border: 1px solid rgba(148, 163, 184, 0.7);
   box-shadow: 0 0 30px rgba(56, 189, 248, 0.65);
   animation: pulseRing 4s ease-in-out infinite;
-} */
+} */ */
 
 /* tagline */
 .hero-tagline {
-  margin-top: 18px;
-  font-weight: 300;
-  font-size: 0.95rem;
-  letter-spacing: 0.2em;
+  margin-top: 32px;  /* gap from logo: ~30px, safe & visible */
+  font-weight: 600;  /* bold */
+  font-size: clamp(1rem, 2.2vw, 1.25rem);  /* dynamic size */
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #9ca3af;
+  color: #e5e7eb;
 }
+
 
 /* scroll hint */
 .scroll-hint {
