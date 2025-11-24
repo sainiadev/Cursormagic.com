@@ -82,8 +82,8 @@ footer {
 
 .hero-welcome {
   position: absolute;
-  top: -12px;              /* slightly above the logo */
-  right: -18px;            /* just outside the logo's top-right boundary */
+  top: 25px;              /* slightly above the logo */
+  right: 450px;            /* just outside the logo's top-right boundary */
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
