@@ -82,38 +82,32 @@ footer {
 
 .hero-welcome {
   position: absolute;
-  top: -14px;
-  left: 62%;              /* pulls it closer above the logo instead of far right */
-  transform: translateX(-50%);
-  font-size: 0.7rem;
+  top: -12px;              /* slightly above the logo */
+  right: -18px;            /* just outside the logo's top-right boundary */
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: #e5e7eb;
-  opacity: 0.9;
+  opacity: 0.95;
   white-space: nowrap;
+  pointer-events: none;
 }
 
 .hero-logo-img {
   display: block;
-  width: min(70vw, 420px);   /* dynamically scales with viewport */
+  width: min(68vw, 520px);   /* responsive size */
   max-width: 100%;
   height: auto;
-  margin: 0 auto;            /* centers horizontally */
+  margin: 0 auto;            /* exact horizontal center */
   object-fit: contain;
-  animation: logoBreathe 4s ease-in-out infinite;
+  animation: logoBreathe 3.8s ease-in-out infinite;
 }
 
 /* subtle breathing animation on the logo itself */
 @keyframes logoBreathe {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);  /* slight, not too strong */
-  }
-  100% {
-    transform: scale(1);
-  }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.025); }   /* subtle */
+  100% { transform: scale(1); }
 }
 
 
@@ -144,26 +138,26 @@ footer {
 
 /* tagline */
 .hero-tagline {
-  margin-top: 22px;   /* closer to logo (around 20–25px gap) */
-  font-weight: 600;   /* bold */
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #e5e7eb;
+  margin-top: 18px;   /* tightened gap */
+  font-weight: 700;   /* bold */
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem); /* responsive */
+  letter-spacing: 0.12em;
+  text-transform: none;
+  color: #e8eef6;
 }
 
 
 /* scroll hint */
 .scroll-hint {
-  margin-top: 56px;
+  margin-top: 16px;   /* pulled up */
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  font-size: 0.8rem;
+  gap: 8px;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: #6b7280;
+  color: #8b93a0;
 }
 
 .scroll-mouse {
